@@ -32,7 +32,15 @@ function createUsuario($con) {
     $dados = receberDadosUsuario();
     if ($dados === null) return;
 
-    if (buscarUsuarioEmail($con, $dados["email"])) {
+    if (strlen($dados["senha"]) < 6) {
+        http_response_code(400);
+        echo json_encode(["erro" => "A senha precisa ter pelo menos 6 caracteres."]);
+        return;
+    }
+
+    $dados["username"] = strtolower($dados["username"]);
+
+    if (buscarUsuarioEmail($con, $dados["email"], $dados["username"])) {
         http_response_code(409);
         echo json_encode(["erro" => "Esse e-mail ou nome de usuário já está cadastrado."]);
         return;
