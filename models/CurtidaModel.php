@@ -1,26 +1,24 @@
 <?php
 
-// CREATE
 function inserirCurtida($con, $dados) {
     $stmt = $con->prepare(
-        "INSERT INTO curtidas (id_usuario, id_publicacao) VALUES (?, ?)"
+        "INSERT IGNORE INTO curtidas (id_usuario, id_publicacao) VALUES (?, ?)"
     );
     $stmt->execute([$dados["id_usuario"], $dados["id_publicacao"]]);
-    return $con->lastInsertId();
 }
 
-// READ
-function listarCurtidas($con) {
-    $stmt = $con->query(
-        "SELECT curtidas.*, usuarios.nome
-         FROM curtidas
-         INNER JOIN usuarios ON usuarios.id_usuario = curtidas.id_usuario
-         ORDER BY curtidas.id_curtida DESC"
+function listarCurtidas($con, $idPublicacao) {
+    $stmt = $con->prepare(
+        "SELECT u.nome, u.username
+         FROM curtidas c
+         INNER JOIN usuarios u ON u.id_usuario = c.id_usuario
+         WHERE c.id_publicacao = ?
+         ORDER BY c.criado_em DESC"
     );
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->execute([$idPublicacao]);
+    return $stmt->fetchAll();
 }
 
-// DELETE
 function removerCurtida($con, $dados) {
     $stmt = $con->prepare(
         "DELETE FROM curtidas WHERE id_usuario = ? AND id_publicacao = ?"
