@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__."/models/UsuarioModel.php";
+require_once __DIR__ . "/UsuarioModel.php";
 function teste(){
     echo json_encode(["mensagem" => "Back-end respondendo com sucesso!"]);
     exit;
