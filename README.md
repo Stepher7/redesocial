@@ -15,7 +15,7 @@ Uma rede social simples feita com HTML, CSS, JavaScript, PHP e MySQL.
 
 1. Coloque a pasta do projeto dentro de `www` do Laragon ou `htdocs` do XAMPP.
 2. Abra o phpMyAdmin.
-3. Importe o arquivo `database.sql`.
+3. Se for um banco novo, importe `database.sql`. Se já tiver as tabelas antigas da atividade, faça um backup e execute `atualizar_banco.sql` uma única vez.
 4. Confira os dados de conexão no arquivo `config.php`.
 5. Inicie o Apache e o MySQL.
 6. Acesse `http://localhost/redesocial/`.
