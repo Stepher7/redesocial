@@ -32,9 +32,9 @@ function buscarUsuarioLogin($con, $login) {
     return $stmt->fetch();
 }
 
-function buscarUsuarioEmail($con, $email) {
+function buscarUsuarioEmail($con, $email, $username) {
     $stmt = $con->prepare("SELECT id_usuario FROM usuarios WHERE email = ? OR username = ?");
-    $stmt->execute([$email, $email]);
+    $stmt->execute([$email, $username]);
     return $stmt->fetch();
 }
 
