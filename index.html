@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conecta | Sua rede social</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="tela-login" class="tela-login">
+        <div class="login-imagem">
+            <div class="marca-grande">conecta<span>.</span></div>
+            <p>Compartilhe seus momentos.<br>Fique perto de quem importa.</p>
+        </div>
+        <div class="login-area">
+            <form id="form-login" class="form-auth">
+                <div class="marca">conecta<span>.</span></div>
+                <h1>Que bom ter você aqui!</h1>
+                <p class="subtitulo">Entre para acompanhar as novidades.</p>
+                <label for="login">E-mail ou nome de usuário</label>
+                <input id="login" name="login" type="text" placeholder="seuusuario" required>
+                <label for="senha-login">Senha</label>
+                <input id="senha-login" name="senha" type="password" placeholder="Sua senha" required>
+                <button type="submit" class="botao-principal">Entrar</button>
+                <p class="troca-form">Ainda não tem uma conta? <button type="button" id="mostrar-cadastro">Criar conta</button></p>
+            </form>
+
+            <form id="form-cadastro" class="form-auth escondido">
+                <div class="marca">conecta<span>.</span></div>
+                <h1>Faça parte!</h1>
+                <p class="subtitulo">Crie sua conta e comece a compartilhar.</p>
+                <label for="nome">Nome</label>
+                <input id="nome" name="nome" type="text" placeholder="Como podemos te chamar?" required>
+                <label for="username">Nome de usuário</label>
+                <input id="username" name="username" type="text" placeholder="ex: ana.silva" required>
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" placeholder="voce@email.com" required>
+                <label for="senha-cadastro">Senha</label>
+                <input id="senha-cadastro" name="senha" type="password" minlength="6" placeholder="Pelo menos 6 caracteres" required>
+                <button type="submit" class="botao-principal">Criar minha conta</button>
+                <p class="troca-form">Já tem uma conta? <button type="button" id="mostrar-login">Entrar</button></p>
+            </form>
+            <p id="mensagem-auth" class="mensagem"></p>
+        </div>
+    </section>
+
+    <div id="aplicacao" class="escondido">
+        <header class="topo">
+            <a href="#" class="marca">conecta<span>.</span></a>
+            <div class="busca"><span>⌕</span><input type="search" placeholder="Encontre inspiração"></div>
+            <div class="topo-usuario">
+                <span id="nome-topo"></span>
+                <button id="sair" class="botao-sair">Sair</button>
+            </div>
+        </header>
+
+        <div class="layout">
+            <aside class="menu-lateral">
+                <a class="menu-item ativo" href="#inicio"><span>⌂</span> Início</a>
+                <a class="menu-item" href="#feed"><span>♡</span> Explorar</a>
+                <a class="menu-item" href="#nova-publicacao"><span>＋</span> Nova publicação</a>
+                <div class="menu-perfil">
+                    <img id="avatar-menu" src="" alt="Foto do perfil">
+                    <div><strong id="nome-menu"></strong><small id="usuario-menu"></small></div>
+                </div>
+            </aside>
+
+            <main class="conteudo">
+                <section class="boas-vindas">
+                    <div>
+                        <span class="etiqueta">SEU ESPAÇO, SUAS HISTÓRIAS</span>
+                        <h1>O que está acontecendo?</h1>
+                        <p>Compartilhe um momento com a sua comunidade.</p>
+                    </div>
+                </section>
+
+                <section id="nova-publicacao" class="criar-post">
+                    <div class="criar-topo">
+                        <img id="avatar-post" src="" alt="Seu perfil">
+                        <div><strong id="nome-criador"></strong><small>Compartilhe algo legal hoje</small></div>
+                    </div>
+                    <form id="form-publicacao">
+                        <textarea id="conteudo-post" placeholder="No que você está pensando?" maxlength="1000" required></textarea>
+                        <div class="post-acoes">
+                            <input id="imagem-post" type="url" placeholder="Link de uma imagem (opcional)">
+                            <button type="submit" class="botao-principal">Publicar</button>
+                        </div>
+                    </form>
+                </section>
+
+                <div class="titulo-feed" id="feed"><div><span class="etiqueta">COMUNIDADE</span><h2>Feed</h2></div><span class="feed-status">Novidades para você</span></div>
+                <section id="lista-publicacoes" class="lista-publicacoes">
+                    <p class="carregando">Carregando publicações...</p>
+                </section>
+            </main>
+
+            <aside class="lateral-direita">
+                <div class="card-lateral">
+                    <span class="etiqueta">BEM-VINDO AO CONECTA</span>
+                    <h3>Boas conexões começam com boas conversas.</h3>
+                    <p>Compartilhe suas ideias, curta publicações e acompanhe a comunidade.</p>
+                </div>
+                <div class="rodape-lateral">Conecta · Projeto acadêmico<br>Feito para compartilhar momentos.</div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
