@@ -33,6 +33,8 @@ Uma rede social simples feita com HTML, CSS, JavaScript, PHP e MySQL.
 
 Os dados das requisições são enviados em JSON.
 
+Para preencher o feed com alguns perfis fictícios, importe também `dados_exemplo.sql`. A senha dos três perfis de demonstração é `conecta123`.
+
 ## Observação
 
 Este projeto é uma atividade de estudo. O login guarda os dados básicos da conta no navegador para identificar as ações no feed. Para uso real, seria necessário implementar sessões ou tokens e validar as permissões no servidor.
