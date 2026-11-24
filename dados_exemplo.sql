@@ -16,7 +16,7 @@ AND NOT EXISTS (SELECT 1 FROM publicacoes WHERE conteudo = "Alguém mais gosta d
 INSERT INTO publicacoes (id_usuario, conteudo)
 SELECT id_usuario, "Hoje tirei um tempinho para cuidar de mim. Faz diferença!"
 FROM usuarios WHERE username = "anaclara"
-AND NOT EXISTS (SELECT 1 FROM publicacoes WHERE conteudo = "Hoje tirei um tempinho para cuidar de mim. Faz diferença?");
+AND NOT EXISTS (SELECT 1 FROM publicacoes WHERE conteudo = "Hoje tirei um tempinho para cuidar de mim. Faz diferença!");
 
 INSERT IGNORE INTO curtidas (id_usuario, id_publicacao)
 SELECT u.id_usuario, p.id_publicacao
